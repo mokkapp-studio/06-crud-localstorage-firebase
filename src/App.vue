@@ -1,27 +1,36 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/about">About</router-link> |
+    <router-link to="/info">Info</router-link> |
+    <router-link to="/editar">Editar</router-link>
   </div>
   <router-view/>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+  import { mapActions } from 'vuex'
+  export default {
+    name: 'App',
+    methods: {
+      ...mapActions(['cargarLocalStorage'])
+    },
+    created(){
+      this.cargarLocalStorage()
+    }
+  }
+</script>
 
+
+<style>
 #nav {
   padding: 30px;
+  background: #38404a;
 }
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #bbcee0;
 }
 
 #nav a.router-link-exact-active {
